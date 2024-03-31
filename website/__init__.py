@@ -7,7 +7,7 @@ app= Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///market.db'
 app.config['SECRET_KEY'] = 'e68257145e89a237de02e9cf'
 db = SQLAlchemy(app)
-
+hkjkkjkj
 bcrypt= Bcrypt(app)
 
 
