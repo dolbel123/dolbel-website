@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Add Product
+{% endblock %}
+
+{% block content %}
+
+  <section class="add-product-section">
+
+    
+    
+    <h1>Add Product</h1>
+    <form method="POST" enctype="multipart/form-data">
+      {{ form.hidden_tag() }}
+
+      <style>
+        /* Add your CSS styles here */
+        .add-product-section {
+          max-width: 600px;
+          margin: 20px auto;
+          padding: 20px;
+          background-color: #DCFFFB; /* Background color based on your theme */
+          border-radius: 10px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+          margin-bottom: 15px;
+        }
+
+        label {
+          display: block;
+          font-weight: bold;
+          margin-bottom: 5px;
+        }
+
+        input,
+        textarea,
+        select {
+          width: 100%;
+          padding: 10px;
+          margin-bottom: 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+        }
+
+        button {
+          display: block;
+          width: 100%;
+          padding: 10px;
+          background-color: #e84393; /* Button color based on your theme */
+          color: #fff;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s;
+        }
+
+        button:hover {
+          background-color: #c0392b; /* Button color on hover based on your theme */
+        }
+      </style>
+
+<div class="form-group" method="POST" enctype="multipart/form-data">
+    <label for="{{ form.name.id }}">Product Name:</label>
+    {{ form.name(class="form-control", placeholder="Enter product name") }}
+  </div>
+  
+  <div class="form-group">
+    <label for="{{ form.price.id }}">Price:</label>
+    {{ form.price(class="form-control", placeholder="Enter price") }}
+  </div>
+  
+  <div class="form-group">
+    <label for="{{ form.barcode.id }}">Barcode:</label>
+    {{ form.barcode(class="form-control", placeholder="Enter barcode") }}
+  </div>
+  
+  <div class="form-group">
+    <label for="{{ form.description.id }}">Product Description:</label>
+    {{ form.description(class="form-control", placeholder="Enter product description") }}
+  </div>
+  
+  <div class="form-group">
+    <label for="{{ form.product_detail.id }}">Product Detail:</label>
+    {{ form.product_detail(class="form-control", placeholder="Enter product detail") }}
+  </div>
+  
+  <div class="form-group">
+    <label for="{{ form.in_stock.id }}">In Stock:</label>
+    {{ form.in_stock(class="form-control", placeholder="Enter stock quantity") }}
+  </div>
+  
+  <div class="form-group">
+    <label for="{{ form.product_picture.id }}">Upload Product Picture:</label>
+    {{ form.product_picture(class="form-control-file") }}
+  </div>
+  
+  <div class="form-group">
+    {{ form.submit(class="btn btn-lg btn-block btn-primary", type="submit", value="Add Product") }}
+  </div>
+  
+  </section>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block title %}
+Home Page
+{% endblock %}
+
+{% block content %}
+<section class="main" id="main">
+  <div class="content">
+    <h3>dolbel</h3>
+    <span>Leading Online Fashion Auction Platform</span>
+    <p>dolbel is a vintage clothing online platform where traders and customers come together for a collective objective. Browse auction catalogs and bid real-time for the hottest drops added daily.</p>
+    <p> OUR BIGGEST DISCOUNT IS BACK</p>
+    <p> Use Code: BIGSAVE10</p>
+     </br> <h3>70% OFF</h3>
+    <a href="{{ url_for('market_page') }}" class="btn">Browse Catalog</a>
+  </div>
+</section>
+
+<section class="events">
+<h1> Top Auction Categoriea </h1>
+<p> We got you! </p>
+
+<div class="split">
+<div class="event-split">
+<h3> Tops </h3>
+<p> Jackets, shirts,etc </p>
+<img src="{{ url_for('static', filename='images/top.png') }}" alt="Logo">
+
+
+<div class="footer-butt">
+    <a href="{{ url_for('market_page') }}" class="button">Explore</a>
+  </div>
+</div>
+
+   <div class="event-split">
+     <h3> Botttoms </h3>
+     <p> Jesns, shorts, etc </p>
+     <img src="{{ url_for('static', filename='images/trouser.png') }}" alt="Logo">
+
+     <div class="footer-butt">
+    <a href="{{ url_for('market_page') }}" class="button">Explore</a>
+  </div>
+        </div>
+
+        <div class="event-split">
+          <h3> Accesories </h3>
+          <p> necklaces, bags, hats, etc </p>
+          <img src="{{ url_for('static', filename='images/glasses.png') }}" alt="Logo">
+
+
+          <div class="footer-butt">
+    <a href="{{ url_for('market_page') }}" class="button">Explore</a>
+  </div>
+             </div>
+</div>
+</section>
+
+        {% endblock %}

@@ -1,0 +1,65 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+Profile
+{% endblock %}
+
+{% block content %}
+
+
+<div class="admin-grid">
+    <aside id="sidebar" class="sidebar">
+        <ul class="sidebar-nav">
+          <li><a href=""><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+          <li><a href="/shop-items"><i class="fas fa-shopping-cart"></i> Shop Items</a></li>
+          <li><a href="/add-product"><i class="fas fa-plus-circle"></i> Add Items</a></li>
+          <li><a href="/view-orders"><i class="fas fa-shopping-bag"></i> Orders</a></li>
+        </ul>
+      </aside>
+
+    <div class="dashboard-container">
+        <h2>Dashboard</h2>
+    
+        <div class="dashboard-cards">
+            <!-- Product Card -->
+            <div class="dashboard-card product-card" onclick="window.location='/shop-items';" >
+                <i class="fas fa-shopping-cart"></i>
+                <p>Products</p>
+            </div>
+  
+           
+            <div class="dashboard-card purchase-orders-card">
+                <i class="fas fa-clipboard"></i>
+                <p>Auction Orders</p>
+            </div>
+  
+            <!-- Sales Orders Card -->
+            <div class="dashboard-card sales-orders-card" onclick="window.location='/view-orders';">
+                <i class="fas fa-chart-bar"></i>
+                <p>Sales Orders</p>
+            </div>
+            
+  
+            <!-- Live Auction Card -->
+            <div class="dashboard-card live-auction-card">
+                <i class="fas fa-gavel"></i>
+                <p>Live Auction</p>
+            </div>
+        </div>
+
+        <!-- Chart Section -->
+        <div class="flex-container">
+            
+
+            <!-- Mixed Chart: Purchase Orders and Sales Orders -->
+            <div id="mixedChart" class="chart-container"></div>
+
+            <!-- Line Chart: Customer Growth Over Time -->
+            <div id="customerChart" class="chart-container"></div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

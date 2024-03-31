@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block title %} Admin - View Orders {% endblock %}
+
+
+{% block content %}
+<div class="admin-container my-5">
+
+    <div class="row">
+        {% if orders %}
+        <h1 class="text-center mb-5">Admin - View Orders</h1>
+        <div class="col-sm-12">
+            <div class="admin-card">
+                <div class="card-body">
+                    <table class="admin-table table table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="admin-th">Order ID</th>
+                                <th class="admin-th">Payment ID</th>
+                                <th class="admin-th">Username</th>
+                                <th class="admin-th">Customer Email</th>
+                                <th class="admin-th">Product Name</th>
+                                <th class="admin-th">Price</th>
+                                <th class="admin-th">Quantity</th>
+                                <th class="admin-th">Product Picture</th>
+                                <th class="admin-th">Order Status</th>
+                                <th class="admin-th">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for order in orders %}
+                            <tr>
+                                <td class="admin-td">{{ order.id }}</td>
+                                <td class="admin-td">{{ order.payment_id }}</td>
+                                <td class="admin-td">{{ order.user.username }}</td>
+                                <td class="admin-td">{{ order.user.email_address }}</td>
+                                <td class="admin-td">{{ order.item.name }}</td>
+                                <td class="admin-td">{{ order.price }}</td>
+                                <td class="admin-td">{{ order.quantity }}</td>
+                                <td class="admin-td">
+                                    <img src="{{ order.item.product_picture }}" alt="Product Image" class="admin-thumbnail" height="50px" width="50px">
+                                </td>
+                                <td class="admin-td">{{ order.status }}</td>
+                                <td >
+                                   <a href="/update-order/{{ order.id }}">Update Status</a>
+                                        
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        {% else %}
+        <h1 class="text-center mb-5">No Orders Found</h1>
+        {% endif %}
+    </div>
+
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.admin-action-button').forEach(function (button) {
+            button.addEventListener('click', function () {
+                var orderId = this.dataset.orderId;
+                // Implement your logic to update the order status using AJAX or other methods
+                // You can open a modal or redirect to another page for the update
+                console.log('Update order status for Order ID: ' + orderId);
+            });
+        });
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Market Page
+{% endblock %}
+
+{% block content %}
+<section class="mark" id="mark">
+  <div class="content">
+    <h3>Marketplace</h3>
+    <p>Explore our latest items and place your bids.</p>
+    <a href="#carousel" class="btn">View Featured Items</a>
+  </div>
+</section>
+
+
+
+
+
+<section class="product-grid">
+  {% for item in items %}
+   
+      <div class="product-card">
+        <a href="{{ url_for('views.product_detail', product_id=item.id) }}" class="product-card-link">
+        <img src="{{ item.product_picture }}" alt="{{ item.name }}">
+        <div class="product-info">
+          <h4>{{ item.name }}</h4>
+          <p>£{{ item.price }}</p>
+          <p>About: {{ item.description }}</p>
+          <p>Product info: {{ item.product_detail }}</p>
+          <p>{{ item.in_stock }} items left</p>
+          <a href="{{ url_for('views.add_to_cart', item_id=item.id) }}" class="btn add-to-cart">Add to Cart</a>
+        </div>
+      </div>
+    </a>
+  {% endfor %}
+</section>
+
+
+
+
+
+
+{% endblock %}

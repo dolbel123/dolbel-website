@@ -1,0 +1,199 @@
+
+<!doctype html>
+<html lang="en" >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-bt+dtQ/kqNT31B1IpOFmmJ6DAjDzGLfGjAgqjGwMNnJzvmiHTzme5CbR4MDQ",
+    crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/apexcharts@3.30.0/dist/apexcharts.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Add this line to include Bootstrap Icons stylesheet -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+  </head>
+  <style>
+    /* Add your styles here */
+    .cart-link {
+        text-decoration: none;
+        color: black;
+        display: flex;
+        align-items: center;
+    }
+
+    .icon {
+        margin-right: 5px; /* Adjust the margin as needed */
+    }
+</style>
+  <body>
+    <header>
+      <input type="checkbox" name="" id="toggler">
+      <label for="toggler" class="fas fa-bars"></label>
+  
+      <a href="{{ url_for('home_page') }}" class="navi">Dolbel<span>.</span></a>
+  
+<!-- Inside the header section -->
+<style>
+  .navbar {
+    display: flex; /* Set the navbar to use flexbox layout */
+    justify-content: flex-start; /* Align items from the start */
+    align-items: center; /* Center items vertically */
+  }
+
+  .navbar a {
+    margin-right: 10px; /* Add some spacing between navbar links */
+    text-decoration: none; /* Remove default underline */
+    color: black; /* Set link color */
+  }
+</style>
+
+<nav class="navbar">
+  <!-- Existing navbar links -->
+  {% if current_user.is_authenticated %}
+    {% if current_user.id != 1 %}
+      <a href="{{ url_for('home_page') }}">Home</a>
+      <a href="{{ url_for('market_page') }}">Market</a>
+    {% endif %}
+    <a href="{{ url_for('views.auction') }}">Auction</a>
+    <a href="{{ url_for('views.cart') }}" class="cart-link">
+      Cart
+      {% if cart | length > 0 %}
+        <i class="bi bi-{{ cart | length }}-square-fill"></i>
+      {% else %}
+        <i class="fas fa-shopping-cart icon"></i>
+      {% endif %}
+    </a>
+    {% if current_user.id == 1 %}
+      <a href="{{ url_for('admin.admin_page') }}">Dashboard</a>
+    {% endif %}
+  {% endif %}
+
+  <!-- Search bar -->
+  <form action="{{ url_for('views.cart') }}" method="GET" class="search-form" id="searchForm">
+    <input type="text" name="query" id="searchInput" placeholder="Search...">
+  </form>
+</nav>
+
+
+
+
+
+
+  
+
+      
+    <!-- Inside the header section -->
+<div class="icons">
+  {% if current_user.is_authenticated %}
+      <div class="user-actions">
+          <div class="icons">
+              <a href="#">Welcome, {{ current_user.username }}</a>
+              <div class="dropdown">
+                  <a href="#" class="dropdown-btn"><i class="fas fa-user"></i></a>
+                  <div class="dropdown-content">
+                      <a href="/profile/{{ current_user.id }}">Profile</a>
+                      <a href="/orders">Orders</a>
+                     
+                      <a href="/list-item">List item</a>
+                      <a href="">Listed items</a>
+                      <a href="{{ url_for('logout_page') }}">Logout</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  {% else %}
+      <div class="icons">
+          <a href="{{ url_for('login_page') }}">Login</a>
+          <a href="{{ url_for('signup_page') }}">Sign Up</a>
+      </div>
+  {% endif %}
+</div>
+
+  </header>
+  
+  
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            {{ message }}
+          </button>
+          
+        </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+   {% block content %}
+   {% endblock %}
+
+        <footer>
+            <div class="footer-container">
+              <div class="footer-columns">
+                <div class="footer-col">
+                  <h3>About Us</h3>
+                  <p>dolbel is a vintage clothing online platform where traders and customers come together for a collective objective. Browse auction catalogs and bid real-time for the hottest drops added daily.</p>
+                </div>
+                <div class="footer-col">
+                  <h3>Contact Us</h3>
+                  <p>1234 Main Street</p>
+                  <p>Birmingham, UK</p>
+                  <p>+44123243212</p>
+                </div>
+                <div class="footer-col">
+                  <h3>Connect With Us</h3>
+                  <ul class="social-links">
+                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="footer-button">
+                <a href="#" class="button">Contact Us</a>
+              </div>
+            </div>
+          </footer>
+   
+    
+    <!-- Bootstrap JS -->
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts@3.32.1"></script>
+
+
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    -->
+
+    
+
+    
+
+   
+  </body>
+  
+</html>

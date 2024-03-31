@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block title %} Orders {% endblock %}
+
+{% block content %}
+  <div class="container my-5">
+    <div class="row">
+      {% if orders %}
+        <h1 class="text-center mb-5">Orders</h1>
+        <div class="col-md-12">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Product Picture</th>
+                
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Status</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              {% for item in orders %}
+                <tr>
+                  <td>
+                    <img src="{{ item.item.product_picture }}" alt="" class="img-thumbnail" style="height: 50px; width: 50px; border-radius: 2px;">
+                  </td>
+                 
+                  <td>{{ item.quantity }}</td>
+                  <td>£ {{ item.price }}</td>
+                  <td>{{ item.status }}</td>
+                 
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      {% else %}
+        <h1 class="text-center mb-5">You have no Orders</h1>
+      {% endif %}
+    </div>
+  </div>
+
+  <style>
+    .container {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+    }
+
+    .img-thumbnail {
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #DCFFFB;
+    }
+
+    a {
+      margin-right: 10px;
+    }
+  </style>
+{% endblock %}

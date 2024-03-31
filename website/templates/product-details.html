@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Product Detail Page
+{% endblock %}
+
+{% block content %}
+<style>
+    .product-detail-container {
+        display: flex;
+        align-items: flex-start;
+        padding: 20px;
+    }
+    .product-image img {
+        width: 50%;
+        max-width: 600px;
+        height: auto;
+    }
+    .product-details {
+        padding-left: 20px;
+        max-width: 50%;
+    }
+    .add-to-cart-btn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 24px;
+        margin: 10px 0;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    .add-to-cart-btn:hover {
+        background-color: #45a049;
+    }
+</style>
+<br>
+<br>
+<br>
+<br>
+
+<div class="product-detail-container">
+    <div class="product-image">
+        <!-- Use the image path directly as it's done in market.html -->
+        <img src="{{ url_for('static', filename=product.product_picture) }}" alt="{{ product.name }}">
+
+    </div>
+    <div class="product-details">
+        <h1>{{ product.name }}</h1>
+        <p>Price: £{{ product.price }}</p>
+        <p><strong>Condition:</strong> {{ product.description }}<br>No major flaws.</p>
+        <p><strong>Item details:</strong><br>{{ product.product_detail }}<br>#162663104<br>48% polyester, 49% rayon, 3% spandex<br>Pencil silhouette, checkered pattern, multi-color, black, work, mid-rise waist.</p>
+        <p><strong>In Stock:</strong> {{ product.in_stock }}</p>
+        <p><strong>Size:</strong><br>14.75" Length, 29" Waist</p>
+        <p><strong>Eco impact:</strong><br>Buying this skirt secondhand instead of new and wearing it 10 times saves the equivalent of:<br>- 642.53 glasses of drinking water<br>- 282.05 hours of an LED lightbulb<br>- 1.52 miles of driving emissions.</p>
+        <form action="{{ url_for('views.add_to_cart', item_id=product.id) }}" method="post">
+            <input type="hidden" name="quantity" value="1">
+            <button type="submit" class="add-to-cart-btn">Add to Cart</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

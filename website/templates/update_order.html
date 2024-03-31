@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %} Admin - Update Order {% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='admin-random-styles.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container-random ">
+    <div class="card-random">
+        <div class="card-body-random">
+            <h1 class="h1-random text-center mb-4">Admin - Update Order</h1>
+            <form action="{{ url_for('admin.update_order', order_id=order.id) }}" method="post" enctype="multipart/form-data" class="form-random">
+                {{ form.hidden_tag() }}
+                <div class="form-group-random">
+                    <label for="status" class="label-random">Order Status</label>
+                    {{ form.status(class="form-control-random") }}
+                </div>
+                <div class="form-group-random">
+                    <button type="submit" class="btn-primary-random btn btn-block">Update Status</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

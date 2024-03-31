@@ -1,0 +1,1170 @@
+:root{
+	--blue:#e84393;
+}
+
+*{
+	margin:0; padding:0;
+	box-sizing: border-box;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	outline: none;
+	border:none;
+	text-decoration: none;
+	text-transform: capitalize;
+	transition: .2s linear;
+}
+
+html{
+font-size: 62.5%;
+scroll-behavior: smooth;
+scroll-padding-top:6rem;
+overflow-x: hidden;
+}
+section{
+	padding: 2rem 9%;
+}
+
+.btn{
+	display:inline-block;
+	margin-top: 1rem;
+	border-radius: 3rem;
+	background: #CBC3E3;
+	 color: #fff;
+	 padding:2.5rem  7rem;
+	 cursor:pointer;
+	 font-size: 1.7rem;
+}
+
+.btn:hover{
+	background:#e84393 ;
+	
+}
+
+header{
+	position: fixed;
+	top:0;
+	left: 0;
+	right:0;
+	background:#DCFFFB;
+	padding: 2rem 9%;
+	display:flex;
+	align-items:center;
+	justify-content:space-between;
+	z-index: 1000;
+	box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+}
+
+header .navi{
+	font-size: 3rem;
+	color:#333;
+	font-weight: bolder;
+}
+
+header .navi span{
+	color:var(--blue);
+}
+
+header .navbar a{
+	font-size: 2rem;
+	padding:0 1.5rem;
+	color:#666;
+}
+
+header .navbar a:hover{
+	
+	color:var(--blue);
+}
+
+header .icons a{
+	font-size: 2rem;
+	color:#333;;
+	margin-left: 1.5rem;
+}
+
+header .icons a:hover{
+	color:var(--blue);
+}
+
+header #toggler {
+	display: none;
+}
+
+header .fa-bars {
+font-size: 3rem;
+color: #333;
+	border-radius: .5rem;
+	padding: .5rem 1.5rem;
+	cursor: pointer;
+	border: 1rem solid rgba(0,0,0,.3);
+	display: none;
+}
+
+
+header .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+header .dropdown-btn {
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+
+header .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #06202b;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+header .dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+header .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* ... (previous CSS code) ... */
+
+@media (max-width: 991px) {
+	header {
+	  padding: 2rem;
+	}
+  
+	header .navbar {
+	  position: absolute;
+	  top: 100%;
+	  left: 0;
+	  right: 0;
+	  background: #eee;
+	  border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
+	  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+	  transition: clip-path 0.3s ease;
+	}
+  
+	header #toggler:checked ~ .navbar {
+	  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+	}
+  
+	header .navbar a {
+	  margin: 1.5rem;
+	  padding: 1.5rem;
+	  background: #fff;
+	  border: 0.1rem solid rgba(0, 0, 0, 0.1);
+	  display: block;
+	}
+  
+	header .icons {
+	  margin-left: auto;
+	}
+  
+	header .dropdown-content {
+	  position: static;
+	  display: none;
+	  background-color: transparent;
+	  box-shadow: none;
+	}
+  
+	header .dropdown:hover .dropdown-content {
+	  display: block;
+	}
+  
+	header .dropdown-content a {
+	  color: #333;
+	  padding: 1rem;
+	}
+  
+	.search-form {
+	  margin-top: 2rem;
+	}
+  }
+  
+  @media (max-width: 768px) {
+	header .fa-bars {
+	  display: block;
+	}
+  
+	header .navbar {
+	  position: absolute;
+	  top: 100%;
+	  left: 0;
+	  right: 0;
+	  background: #eee;
+	  border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
+	  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+	}
+  
+	header #toggler:checked ~ .navbar {
+	  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+	}
+  
+	header .navbar a {
+	  margin: 1.5rem;
+	  padding: 1.5rem;
+	  background: #fff;
+	  border: 0.1rem solid rgba(0, 0, 0, 0.1);
+	  display: block;
+	}
+  }
+  
+  /* ... (remaining CSS code) ... */
+
+.main{
+	display:flex;
+	align-items:center;
+	min-height: 100vh;
+	background: url('/static/images/main.jpeg');
+	background-size: cover;
+background-position: center;
+}
+
+.main .content {
+	max-width: 50rem;
+}
+
+.main .content h3{
+	font-size: 6rem;
+	color: #333;
+
+}
+
+.main .content span{
+	font-size: 3rem;
+	color:var(--blue);
+	padding: 1rem 0;
+	line-height: 1.5;	
+}
+
+
+.main .content p{
+	font-size: 1.5rem;
+	color:var#999 ;
+	padding: 1rem 0;
+	line-height: 1.5;	
+}
+
+
+
+.mark{
+	display:flex;
+	align-items:center;
+	min-height: 100vh;
+	background: url('/static/images/market.jpeg');
+	background-size: cover;
+background-position: center;
+}
+
+.mark .content {
+	max-width: 50rem;
+}
+
+.mark .content h3{
+	font-size: 6rem;
+	color: #333;
+
+}
+
+.mark .content span{
+	font-size: 3rem;
+	color:var(--blue);
+	padding: 1rem 0;
+	line-height: 1.5;	
+}
+
+
+.mark .content p{
+	font-size: 1.5rem;
+	color:var#999 ;
+	padding: 1rem 0;
+	line-height: 1.5;	
+}
+
+
+
+.auc{
+	display:flex;
+	align-items:center;
+	min-height: 100vh;
+	background: url('/static/images/auction.jpeg');
+	background-size: cover;
+background-position: center;
+}
+
+.auc .content {
+	max-width: 50rem;
+}
+
+.auc .content h3{
+	font-size: 6rem;
+	color: #333;
+
+}
+
+.auc .content span{
+	font-size: 3rem;
+	color:var(--blue);
+	padding: 1rem 0;
+	line-height: 1.5;	
+}
+
+
+.auc .content p{
+	font-size: 1.5rem;
+	color:var#999 ;
+	padding: 1rem 0;
+	line-height: 1.5;	
+}
+
+.prof{
+	display:flex;
+	align-items:center;
+	min-height: 100vh;
+	background: url('/static/images/user.png');
+	background-size: cover;
+background-position: center;
+}
+
+.prof .content {
+	max-width: 50rem;
+}
+
+.prof .content h3{
+	font-size: 6rem;
+	color: #333;
+
+}
+
+.prof .content span{
+	font-size: 3rem;
+	color:var(--blue);
+	padding: 1rem 0;
+	line-height: 1.5;	
+}
+
+
+.prof .content p{
+	font-size: 1.5rem;
+	color:var#999 ;
+	padding: 1rem 0;
+	line-height: 1.5;	
+}
+
+
+/* events styles */
+.events {
+	width: 70%;
+	margin: auto;
+	text-align: center;
+	padding-top: 100px;
+  }
+  
+  .events p {
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 20px;
+	padding: 10px;
+  }
+  
+  .split {
+	margin-top: 5%;
+	display: flex;
+	justify-content: space-between;
+  }
+  
+  .event-split {
+	flex-basis: 31%;
+	background: #CBC3E3;
+	border-radius: 10px;
+	margin-bottom: 20px;
+	padding: 20px;
+	box-sizing: border-box;
+	transition: 0.5s;
+  }
+  
+  .event-split h3 {
+	text-align: center;
+	font-weight: 600;
+	margin: 10px 0;
+  }
+  
+  .event-split:hover {
+	box-shadow: 0 0 20px 0px rgba(207, 1, 94, 0.2);
+  }
+  
+  .event-split img {
+	width: 200px; /* Increased from 100px */
+	height: 200px; /* Increased from 100px */
+	object-fit: cover;
+	margin-bottom: 10px;
+  }
+  
+  @media screen and (max-width: 768px) {
+	.event-split {
+	  flex-basis: 48%;
+	}
+  }
+  
+  @media screen and (max-width: 480px) {
+	.event-split {
+	  flex-basis: 100%;
+	}
+  }
+ /* Footer styles */
+
+ footer {
+	background-color: #DCFFFB;
+	padding: 40px 20px;
+	
+  }
+  
+  .footer-container {
+	max-width: 1100px;
+	margin: 0 auto;
+  }
+  
+  .footer-columns {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+  }
+  
+  .footer-col {
+	width: calc(33.33% - 20px);
+	margin-bottom: 20px;
+  }
+  
+  .footer-col h3 {
+	margin-bottom: 10px;
+	font-size: 18px;
+	font-weight: bold;
+	color: #333;
+	
+  }
+  
+  .footer-col p {
+	margin-bottom: 10px;
+	font-size: 14px;
+	color: #666;
+	
+  }
+  
+  .social-links li {
+	display: inline-block;
+	margin-right: 10px;
+  }
+  
+  .social-links li:last-child {
+	margin-right: 0;
+  }
+  
+  .social-links a {
+	display: block;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	color: #fff;
+	background: #CBC3E3;
+	border-radius: 50%;
+	transition: all 0.3s ease;
+  }
+  
+  .social-links a:hover {
+	transform: scale(1.1);
+  }
+  
+  .button {
+	display: inline-block;
+	padding: 10px 20px;
+	
+	background-color:#CBC3E3;
+	color: #fff;
+	font-size: 14px;
+	font-weight: bold;
+	text-transform: uppercase;
+	border-radius: 15px;
+	transition: all 0.3s ease;
+  }
+  
+  .button:hover {
+	background:#e84393;
+	
+  }
+
+
+
+  .login-form {
+	display: flex;
+	flex-direction: column;
+	max-width: 400px;
+	margin: 0 auto;
+	
+  }
+  
+  label, input, button {
+	margin: 10px 0;
+	width: 100%;
+  }
+  
+  button {
+	background-color: #007bff;
+	color: #7fe9f0;
+	padding: 10px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+  }
+  
+  @media screen and (min-width: 768px) {
+	.login-form {
+	  max-width: 600px;
+	}
+  }
+  
+  
+  @media (max-width: 767px) {
+	.footer-columns {
+	  flex-direction: column;
+	}
+	
+	.footer-col {
+	  width: 100%;
+	  margin-bottom: 40px;
+	}
+  }
+  
+  
+ 
+
+
+
+@media (max-width:991px){
+html{
+	font-size:55%; 
+}
+header{
+	padding:2rem;
+}
+section{
+	padding:2rem;
+}
+.main{
+	background-position:left ;
+}
+}
+
+
+@media (max-width:768px) {
+	header .fa-bars{
+		display: block;
+	}
+	header.navbar{
+		position: absolute;
+		top:100%; left:0; right:0;
+		background: #eee ;
+		border-top:.1rem solid rgba(0,0,0,.1);
+		clip-path: polygon(0 0, 100% 0, 100% 0,0 0);
+	}
+	header #toggler:checked .navbar {
+		clip-path: polygon(0 0,100% 0, 100% 100%, 0% 100%);
+	}
+	header .navbar a{
+		margin: 1.5rem;
+		padding:1.5rem;
+		background:#fff;
+		border: .1rem solid rgba(0,0,0,.1);
+		display: block;
+	}
+}
+
+.mail .content{
+	font-size: 5rem;
+}
+
+.mail .content span{
+	font-size: 2.5rem;
+}
+
+@media (max-width:450px){
+	html{
+		font-size:50%;
+	}
+	
+	}
+
+	
+	  
+
+
+	
+.login-page {
+	width: 360px;
+	padding: 8% 0 0;
+	margin: auto;
+	
+  }
+
+  .login-page .h1 {
+	
+	font-size: 40px;
+	
+  }
+  .form {
+	position: relative;
+	z-index: 1;
+	background: #DCFFFB;
+	max-width: 360px;
+	margin: 0 auto 100px;
+	padding: 45px;
+	border-radius: 10px;
+	text-align: center;
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+	background:url(form.webp);
+  }
+  .form h1 {
+	  text-align: center;
+	  color: #FFFFFF;
+  }
+  .form input {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	outline: 0;
+	background: #f2f2f2;
+	width: 100%;
+	border: 0;
+	border-radius: 5px;
+	margin: 0 0 15px;
+	padding: 15px;
+	box-sizing: border-box;
+	font-size: 14px;
+  }
+  .form button {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	text-transform: uppercase;
+	outline: 0;
+	background: #CBC3E3;
+	width: 100%;
+	border: 0;
+	border-radius: 15px;
+	padding: 15px;
+	color: #FFFFFF;
+	font-size: 14px;
+	-webkit-transition: all 0.3 ease;
+	transition: all 0.3 ease;
+	cursor: pointer;
+  }
+  .form button:hover,.form button:active,.form button:focus {
+	background: #e84393;
+  }
+  .form .message {
+	margin: 15px 0 0;
+	color: #b3b3b3;
+	font-size: 12px;
+  }
+  .form .message a {
+	color: #4CAF50;
+	text-decoration: none;
+  }
+  .form .register-form {
+	display: none;
+  }
+
+  @media (min-width: 768px) {
+	.login-page {
+	  max-width: 360px;
+	  margin: auto;
+	  padding-top: 100px;
+	}
+}
+
+.split .event-split .footer-butt .button {
+	display: inline-block;
+	padding: 10px 20px;
+	
+	background-color:#090513;
+	color: #fff;
+	font-size: 14px;
+	font-weight: bold;
+	text-transform: uppercase;
+	border-radius: 15px;
+	transition: all 0.3s ease;
+
+}
+
+.split .event-split .footer-butt .button:hover {
+	background:#43e880;
+  }
+
+  /*product photo grid*/
+/* Add or modify styles as needed */
+/* Carousel Styles */
+
+  
+  .carousel {
+	display: flex;
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+  }
+  
+  .carousel-item {
+	flex: 0 0 auto;
+	scroll-snap-align: start;
+	margin-right: 1rem;
+  }
+  
+  .carousel-item img {
+	width: 100%;
+	border-radius: 10px;
+  }
+
+  .carousel-container {
+	padding: 20px;
+  }
+  
+  #productCarousel {
+	margin-top: 20px;
+  }
+
+
+  
+  /* Product Grid Styles */
+  
+  
+  
+  .product-info {
+	padding: 1rem;
+  }
+  
+  .product-info h4 {
+	font-size: 1.5rem;
+  }
+  
+  .product-info p {
+	font-size: 1.2rem;
+	color: #666;
+	margin-bottom: 0.5rem;
+  }
+  
+  .product-info .add-to-cart {
+	display: block;
+	margin-top: 1rem;
+	border-radius: 5px;
+	background: #e84393;
+	color: #fff;
+	padding: 0.5rem 1rem;
+	cursor: pointer;
+	font-size: 1rem;
+  }
+  
+  .product-info .add-to-cart:hover {
+	background: #f2709c;
+  }
+
+ /* Root variables and base styles remain unchanged */
+
+/* Adjusted grid layout for product cards */
+.product-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust based on your design */
+	gap: 2.2rem; /* Adjust gap as needed */
+	padding: 2rem 9%;
+  }
+  
+  .product-card-link {
+	display: inline-block; /* Makes the link fit its content */
+	margin: 0; /* Ensure no margin is causing unwanted space */
+	text-decoration: none; /* Removes underline */
+	color: inherit; /* Inherits text color */
+  }
+  
+  
+  /* Product card styling, focusing on removing any outer margin/padding that might increase gaps */
+  .product-card {
+	background: #CBC3E3;
+	border-radius: 10px;
+	overflow: hidden;
+	margin: 0; /* Ensures no external margin */
+	display: flex;
+	flex-direction: column;
+  }
+  
+  /* Adjustments for image and product info remain unchanged */
+  
+  
+  .product-card img {
+	max-width: 100%; /* Ensures images are responsive */
+	height: auto; /* Maintains aspect ratio */
+	border-radius: 10px 10px 0 0; /* Rounds the top corners */
+  }
+  
+  
+  
+  /* Change password section styling */
+.change-password {
+	margin-top: 30px;
+	max-width: 400px;
+	margin: 20px auto;
+  }
+  
+  .form-group {
+	margin-bottom: 15px;
+  }
+  
+  /* Flash message styling */
+  .alert {
+	margin-top: 20px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+	.content, .change-password {
+	  max-width: 100%;
+	}
+  }
+
+
+/* admin_styles.css */
+
+.admin-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.admin-thumbnail {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.admin-th,
+.admin-td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.admin-th {
+    background-color: #DCFFFB;
+}
+
+.admin-action-button {
+    cursor: pointer;
+    color: #fff;
+    background-color: #007BFF;
+    border: 1px solid #007BFF;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+
+
+/* admin-random-styles.css */
+
+/* Add these styles to your existing CSS */
+
+/* Style for the dropdown options */
+.form-control-random select {
+    font-size: 16px; /* Adjust the font size as needed */
+    padding: 10px; /* Add padding for better appearance */
+    /* Add any additional styling you want for the dropdown options */
+}
+
+/* Style for the dropdown arrow */
+.form-control-random select::-ms-expand {
+    display: none; /* Hide the default arrow in Internet Explorer */
+}
+
+.form-control-random select::after {
+    content: '\25BC'; /* Unicode character for down arrow */
+    position: absolute;
+    top: 50%;
+    right: 15px; /* Adjust the right offset as needed */
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.container-random {
+    max-width: 400px;
+    margin: 0 auto; /* Add this line to center the container */
+    display: flex; /* Add this line to enable centering vertically */
+    align-items: center; /* Add this line to center the content vertically */
+    height: 100vh; /* Add this line to make the container take the full height of the viewport */
+}
+
+.card-random {
+	background-color: #DCFFFB;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Add this line to make sure the card takes the full width of the container */
+}
+
+.card-body-random {
+    padding: 20px;
+}
+
+.h1-random {
+    color: black;
+}
+
+.form-random {
+    margin-bottom: 0;
+}
+
+.form-group-random {
+    margin-bottom: 20px;
+}
+
+.label-random {
+    font-weight: bold;
+    color: #333;
+}
+
+.form-control-random {
+    border-radius: 5px;
+}
+
+.btn-primary-random {
+    background-color: #CBC3E3;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-primary-random:hover {
+    background-color: #f2709c;
+}
+
+
+/* Add any custom styles for your super admin page */
+.super-container-random {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.super-card-random {
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.super-card-body-random {
+    padding: 20px;
+}
+
+.super-table-random {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.super-th-random, .super-td-random {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.super-th-random {
+    background-color: #DCFFFB;
+}
+
+.super-link-random {
+    margin-right: 10px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.super-link-random:hover {
+    color: #0056b3;
+}
+
+
+
+/* admin dashboard */
+/* Reset some default styles */
+
+  
+  /* Apply some basic styling to the admin grid */
+  .admin-grid {
+	display: grid;
+	grid-template-columns: 200px 1fr;
+	grid-template-rows: auto;
+	height: 100vh; /* Adjust the height as needed */
+  }
+  
+  /* Style the header */
+  
+  /* Style the sidebar */
+  #sidebar {
+	grid-column: 1;
+	background-color: #e84393;
+	color: #fff;
+	padding: 20px;
+	height: 100%;
+	overflow-y: auto;
+	transition: all 0.5s;
+  }
+  
+  /* Style the main content container */
+  .admin-container {
+	grid-column: 2;
+	overflow-y: auto;
+	padding: 20px 20px;
+  }
+  
+/* Add or update your existing styles */
+
+
+.sidebar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.sidebar-nav li {
+    margin-bottom: 10px;
+}
+
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+	font-size: 1.7em;
+}
+
+.sidebar-nav a:hover {
+    background-color: #777;
+}
+
+.sidebar-nav i {
+    margin-right: 10px;
+}
+
+
+.dashboard-container {
+	text-align: center;
+	padding: 20px;
+  }
+  
+  h2 {
+	margin-bottom: 20px;
+  }
+  
+  .dashboard-cards {
+	display: flex;
+	justify-content: space-around;
+  }
+  
+  .dashboard-card {
+	width: 120px;
+	padding: 10px;
+	text-align: center;
+	border-radius: 8px;
+	cursor: pointer;
+  }
+  
+  /* Individual Card Styles */
+  
+  .product-card {
+	background-color: #3498db;
+	color: #fff;
+  }
+  
+  .purchase-orders-card {
+	background-color: #2ecc71;
+	color: #fff;
+  }
+  
+  .sales-orders-card {
+	background-color: #e74c3c;
+	color: #fff;
+  }
+  
+  .live-auction-card {
+	background-color: #f39c12;
+	color: #fff;
+  }
+  
+  /* Icons Styles */
+  .dashboard-card i {
+	font-size: 24px;
+	margin-bottom: 10px;
+  }
+  
+  /* Hover effect for cards */
+  .dashboard-card:hover {
+	transform: scale(1.05);
+	transition: transform 0.3s ease-in-out;
+  }
+  /* Add some responsiveness for smaller screens */
+  @media (max-width: 768px) {
+	.admin-grid {
+	  grid-template-columns: 1fr;
+	}
+  
+	#sidebar {
+	  display: none; /* Hide the sidebar on smaller screens */
+	}
+  }
+
+/* Flex container for charts */
+.flex-container {
+	display: flex;
+	justify-content: space-between;
+  }
+  
+  /* Styling for individual chart containers */
+  .chart-container {
+	flex: 1;
+	margin: 10px;
+	padding: 20px;
+	background-color: #fff; /* Set your preferred background color */
+	border-radius: 8px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+
+  /* search form */
+  .search-form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 20px; /* Adjust as needed */
+  }
+  
+  .search-form input[type="text"] {
+	width: 300px; /* Adjust width as needed */
+	padding: 10px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	outline: none;
+  }
+  
+  .search-form input[type="text"]::placeholder {
+	color: #999;
+  }
+  
+  /* Adjust other styles as needed */
+  

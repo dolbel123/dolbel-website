@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block title %}
+SignUp Page
+{% endblock %}
+
+{% block content %}
+
+<section>
+   
+    
+  <br>
+  <br>
+  <br>
+
+  <div class="login-page">
+   
+    <div class="form">
+
+        <form method="POST" class="login-form">
+          {{ form.hidden_tag() }}
+          <h1 style="color: black;">Sign Up Form</h1>
+            <!-- Username Field -->
+            <label for="{{ form.username.id }}">{{ form.username.label }}</label>
+            {{ form.username(class="form-control", placeholder="Username") }}
+
+            <!-- Email Address Field -->
+            <label for="{{ form.email_address.id }}">{{ form.email_address.label }}</label>
+            {{ form.email_address(class="form-control", placeholder="Email Address") }}
+
+            <!-- Password Fields -->
+            <label for="{{ form.password.id }}">{{ form.password.label }}</label>
+            {{ form.password(class="form-control", placeholder="Password", required="required") }}
+
+            <label for="{{ form.repeat_password.id }}">{{ form.repeat_password.label }}</label>
+            {{ form.repeat_password(class="form-control", placeholder="Repeat Password", required="required") }}
+
+            <!-- Submit Button -->
+            {{ form.submit(class="btn btn-Ig btn-block btn-primary", type="submit", value="Sign Up!") }}
+
+            <!-- Login Link -->
+            <p class="message">Already a user? <a href="{{ url_for('login_page') }}">Login</a></p>
+
+        </form>
+    </div>
+</div>
+
+
+
+
+</div>
+</div>
+</section>
+        {% endblock %}
+
+
+
+  
+
+
+
+
+

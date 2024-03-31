@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Profile
+{% endblock %}
+
+{% block content %}
+<section class="prof" id="prof">
+  <div class="content">
+    <h3>Profile</h3>
+    <p>Welcome, {{ current_user.username }}!</p>
+    <p>Email: {{ current_user.email_address }}</p>
+  </div>
+</section>
+
+<section>
+    
+  
+    <div class="change-password-page justify-content-center">
+      
+      <div class="form">
+        <form method="POST" class="change-password-form" >
+          {{ form.hidden_tag() }}
+  
+          <h1 style="color: black;">Change Password</h1>
+          <br>
+        
+          <!-- Old Password Field -->
+          <div class="form-group">
+            <label for="{{ form.old_password.id }}">{{ form.old_password.label }}</label>
+            {{ form.old_password(class="form-control", placeholder="Old Password") }}
+          </div>
+  
+          <!-- New Password Field -->
+          <div class="form-group">
+            <label for="{{ form.new_password.id }}">{{ form.new_password.label }}</label>
+            {{ form.new_password(class="form-control", placeholder="New Password") }}
+          </div>
+  
+          <!-- Confirm Password Field -->
+          <div class="form-group">
+            <label for="{{ form.confirm_password.id }}">{{ form.confirm_password.label }}</label>
+            {{ form.confirm_password(class="form-control", placeholder="Confirm Password") }}
+          </div>
+  
+          <!-- Submit Button -->
+          {{ form.submit(class="btn btn-lg btn-block btn-primary", type="submit", value="Change Password") }}
+        </form>
+      </div>
+    </div>
+  
+  </section>
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        {{ message }}
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+{% endblock %}

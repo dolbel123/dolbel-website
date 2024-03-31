@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ product.name }} Details
+{% endblock %}
+
+{% block content %}
+  <h1>{{ product.name }} Details</h1>
+  <p>Description: {{ product.description }}</p>
+  <p>Remaining Items: {{ product.remaining_items }}</p>
+  <!-- Add more details as needed -->
+
+  <!-- You can also include a button to add the item to the cart -->
+  <a href="{{ url_for('add_to_cart', product_id=product.id) }}" class="btn btn-primary">Add to Cart</a>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Auction Page
+{% endblock %}
+
+{% block content %}
+  <section class="auc" id="auc">
+    <div class="content">
+      <h3>Auction House</h3>
+      <p>Explore our latest auction items and place your bids.</p>
+      <a href="#carousel" class="btn">View Featured Items</a>
+    </div>
+  </section>
+
+  <section class="product-grid">
+    {% for auction in auctions %}
+      <div class="product-card" data-end-time="{{ auction.end_time.strftime('%Y-%m-%d %H:%M:%S') }}">
+        <img src="{{ auction.product_picture }}" alt="{{ auction.item_name }}">
+        <div class="product-info">
+          <h4>{{ auction.item_name }}</h4>
+          <p>Description: {{ auction.description }}</p>
+          <p>Start Time: {{ auction.start_time.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+          <p>End Time: {{ auction.end_time.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+          <p>Current Bid: £{{ auction.current_bid }}</p>
+          <p class="countdown">Time Remaining: <span class="countdown-timer"></span></p>
+          <a href="" class="btn add-to-cart">Place Bid</a>
+        </div>
+      </div>
+    {% endfor %}
+  </section>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      // Update countdown timers
+      updateCountdowns();
+
+      // Update countdown timers every second
+      setInterval(updateCountdowns, 1000);
+    });
+
+    function updateCountdowns() {
+      $('.product-card').each(function () {
+        var endTime = new Date($(this).data('end-time')).getTime(); // Retrieve end_time from data attribute
+        var now = new Date().getTime();
+        var timeRemaining = endTime - now;
+
+        var hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+        var countdownText = hours + "h " + minutes + "m " + seconds + "s";
+        $(this).find('.countdown-timer').text(countdownText);
+      });
+    }
+  </script>
+
+{% endblock %}
